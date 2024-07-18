@@ -1,0 +1,246 @@
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700'); /* Refer to fonts */
+
+/* General Styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	transition: all 0.3s;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.btn:focus,
+.btn:active,
+input,
+.form-control:focus,
+.form-control:active {
+	outline: none !important;
+	box-shadow: none;
+}
+
+body {
+	height: 100%;
+	background-image: url('wallpaper.png'); 
+	background-color: rgba(69, 69, 69, 0.404); 
+    background-blend-mode: overlay; 
+	color: white; 
+}
+
+/* Style for the Welcome screen */
+#welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    text-align: center;
+}
+#welcome-screen img{
+	height: 50%; 
+	width: 50%; 
+	align-items: center;
+}
+
+#start-quiz-btn {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #e87999d8;
+    color: #ffffff;
+    border: none;
+}
+#start-quiz-btn:hover{
+    background-color: #dc6486;
+    color: #ffffff;
+
+}
+
+/* Main Container Styles */
+
+.container {
+	width: 560px;
+	height: auto;
+	padding: 0;
+	margin: auto;
+	color: #7c3244;
+	background: #fbcfe4c7;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	border-radius: 7px;
+	box-shadow: #ccc;
+}
+
+/* Questions section styles */
+
+section#theQuiz {
+	display: none;
+	background: #fcf7fa;
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
+}
+
+#quizForm {
+	position: relative;
+	background-color: transparent;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+	padding-bottom: 70px;
+}
+
+#quizForm h2 {
+	text-align: center;
+}
+
+#quizForm p {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-top: -5px;
+}
+
+#quizForm #tab .custom-radio {
+	margin-top: 10px;
+}
+
+#quizForm #tab label.custom-control-label {
+	width: 100%;
+	overflow: auto;
+}
+
+#quizForm button {
+	position: absolute;
+	bottom: -10px;
+	border-radius: 0;
+	width: 100%;
+	left: 0;
+	font-size: 1.5em;
+	height: 60px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+
+/* Make circles that indicate the levels of the questions */
+#quizForm .step {
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbbbbb;
+	border: none;
+	border-radius: 50%;
+	display: inline-block;
+	opacity: 0.5;
+}
+
+#quizForm .step.active {
+	opacity: 1;
+	background-color: #ef6d8e;
+}
+
+#next-button
+{
+	background-color: #f37f9c;
+}
+/* Result section styles */
+
+section#theResult {
+	display: none;
+	background: #fdf9fbb4 ;
+	border-radius: 7px;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+}
+
+.circular-chart {
+	display: block;
+	margin: 10px auto;
+	max-width: 80%;
+	max-height: 250px;
+}
+
+.circle-bg {
+	fill: none;
+	stroke: #ffffff;
+	stroke-width: 3.8;
+}
+
+.circle {
+	fill: none;
+	stroke-width: 2.8;
+	stroke-linecap: round;
+	animation: progress 1s ease-out forwards;
+}
+
+#retake-button{
+	background-color: #f37f9c;
+	font-size: 20px;
+}
+#retake-button:hover{
+	background-color: #ef6d8e;
+}
+
+@keyframes progress {
+	0% {
+		stroke-dasharray: 0 100;
+	}
+}
+
+.circular-chart.red .circle {
+	stroke: #ff0000;
+}
+
+.circular-chart.orange .circle {
+	stroke: #ff9f00;
+}
+
+.circular-chart.green .circle {
+	stroke: #4cc790;
+}
+
+.circular-chart.blue .circle {
+	stroke: #3c9ee5;
+}
+
+.circular-chart.pink .circle {
+	stroke: #ff51bc;
+}
+
+#percentage {
+	fill: #666;
+	font-size: 0.5em;
+	text-anchor: middle;
+}
+
+/* Responsiveness */
+
+@media screen and (max-width: 768px) {
+	.container,
+	#theQuiz form{
+		width: 480px;
+		margin-top: 70px;
+	}
+    #welcome-screen img{
+		width: 60%;
+		height: 40%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.container,
+	#theQuiz form
+	{
+		width: 320px;
+		margin-top: 50px;
+	}
+	#quizForm #tab label.custom-control-label {
+		border-bottom: 1px solid #ccc;
+	}
+	#welcome-screen img{
+		width: 60%;
+		height: 40%;
+	}
+}
